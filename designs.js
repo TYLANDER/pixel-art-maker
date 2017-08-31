@@ -1,17 +1,4 @@
-// Select color input
-$('td').on("click", function() {
-  console.log("row color");
-  $("td").css("color", "blue");
-});
-
-
-// Select size input
-var sizepicker = $('#sizePicker');
-var pixelcanvas = $('#pixel_canvas');
-
-// When size is submitted by the user, call makeGrid()
-
-function makeGrid(id, height, width) {
+var makeGrid = function (id, height, width) {
   var table = $(id);
   console.log(table);
 
@@ -28,11 +15,24 @@ function makeGrid(id, height, width) {
   })
 }
 
+$(document).ready( function() {
 
-$('#submit').on("click", function () {
-  console.log("In callback");
-  var height = $('#input_height').val()
-  var width = $('#input_width').val()
-  var id = '#pixel_canvas'
-  makeGrid(id, height, width);
-});
+  console.log("in document")
+
+  $('td').on("click", function() {
+    console.log("row color");
+    $("td").css("color", "blue");
+  });
+
+
+  $('#submit').on("click", function () {
+    console.log("In submit callback");
+    var height = $('#input_height').val()
+    console.log(height)
+    var width = $('#input_width').val()
+    console.log(width)
+    var id = '#pixel_canvas'
+    makeGrid(id, height, width);
+  });
+
+})
